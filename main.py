@@ -19,8 +19,7 @@ class Usuario(db.Model):
 
 if __name__ == "__main__":
     with app.app_context():
-       Usuarios =db.session.query(Usuario).all()
-       for us in Usuarios:
-          print(f"Usuarios: {us.nome}")
+        user = db.session.query(Usuario).filter_by(id=2).first()
+        print(user)
     from views import *
     app.run(debug=True)
