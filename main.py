@@ -20,6 +20,7 @@ class Usuario(db.Model):
 if __name__ == "__main__":
     with app.app_context():
         user = db.session.query(Usuario).filter_by(id=2).first()
-        print(user)
+        user.nome = "Rodrigo"
+        db.session.commit()
     from views import *
     app.run(debug=True)
