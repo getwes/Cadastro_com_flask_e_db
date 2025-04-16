@@ -20,6 +20,7 @@ class Usuario(db.Model):
 if __name__ == "__main__":
     with app.app_context():
        Usuarios =db.session.query(Usuario).all()
-       print(Usuarios)
+       for us in Usuarios:
+          print(f"Usuarios: {us.nome}")
     from views import *
     app.run(debug=True)
