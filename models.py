@@ -1,1 +1,2 @@
-"para banco de dados ou tabelas etc"
+from flask_sqlalchemy import SQLAlchemy
+db = SQLAlchemy()
