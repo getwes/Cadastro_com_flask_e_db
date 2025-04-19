@@ -8,4 +8,4 @@ def homepage():
 
 @app.route("/registrar")
 def registrar():
-    return render_template("registrar.html")
+    return render_template("registrar_contato.html")
