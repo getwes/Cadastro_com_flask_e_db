@@ -1,5 +1,7 @@
 from main import app
 from flask import render_template, request
+from models import Contato
+from  db import db
 #rotas
 
 @app.route("/")
@@ -14,7 +16,9 @@ def registrar():
         nome = request.form['nomeForm']
         telefone = request.form['telefoneForm']
 
-        print(nome)
-        print(telefone)
+        novo_contato = Contato(nome=nome, telefone=telefone)
+        db.session.add(novo_contato)
+        db.session.commit()
+
 
         return 'Usuario registrado'
