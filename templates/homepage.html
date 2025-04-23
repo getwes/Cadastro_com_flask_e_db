@@ -6,6 +6,13 @@
     <title>Document</title>
 </head>
 <body>
-    meu site em flask htmlzão
+    <h1>Contatos</h1>
+    <ul>
+        {% for contato in contatos%}
+
+          <li>{{contato.nome}} - {{contato.telefone}}</li>
+
+        {%endfor%}
+    </ul>
 </body>
 </html>

@@ -1,12 +1,13 @@
 from main import app
-from flask import render_template, request
+from flask import render_template, request, redirect, url_for
 from models import Contato
 from  db import db
 #rotas
 
 @app.route("/")
 def homepage():
-    return render_template("homepage.html")
+    contatos = db.session.query(Contato).all()
+    return render_template("homepage.html", contatos=contatos)
 
 @app.route("/registrar", methods=['GET', 'POST'])
 def registrar():
@@ -21,4 +22,4 @@ def registrar():
         db.session.commit()
 
 
-        return 'Usuario registrado'
+        return redirect(url_for('homepage'))
