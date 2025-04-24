@@ -24,8 +24,9 @@ def registrar():
 
         return redirect(url_for('homepage'))
 
-@app.route('deletar/<int:id>')
+@app.route('/deletar/<int:id>')
 def deletar(id):
-    contato = db.asseion.query(Contato).filter_by(id=id).first()
+    contato = db.session.query(Contato).filter_by(id=id).first()
     db.session.delete(contato)
     db.session.commit()
+    return redirect(url_for('homepage'))
