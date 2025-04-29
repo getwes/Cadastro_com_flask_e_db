@@ -30,3 +30,7 @@ def deletar(id):
     db.session.delete(contato)
     db.session.commit()
     return redirect(url_for('homepage'))
+
+@app.route('/editar/<int:id>')
+def editar(id):
+    return render_template('editar_contato.html') 
