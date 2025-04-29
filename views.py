@@ -31,7 +31,16 @@ def deletar(id):
     db.session.commit()
     return redirect(url_for('homepage'))
 
-@app.route('/editar/<int:id>')
+@app.route('/editar/<int:id>', methods=['GET', 'POST'])
 def editar(id):
     contato = db.session.query(Contato).filter_by(id=id).first()
-    return render_template('editar_contato.html', contato=contato) 
+    if request.method == "GET":
+      return render_template('editar_contato.html', contato=contato) 
+    elif request.method == "POST":
+        nome = request.form['nomeForm']
+        telefone = request.form['telefoneForm']
+
+        contato.nome = nome
+        contato.telefone = telefone
+        db.session.commit()
+        return redirect(url_for('homepage'))
