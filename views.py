@@ -33,4 +33,5 @@ def deletar(id):
 
 @app.route('/editar/<int:id>')
 def editar(id):
-    return render_template('editar_contato.html') 
+    contato = db.session.query(Contato).filter_by(id=id).first()
+    return render_template('editar_contato.html', contato=contato) 

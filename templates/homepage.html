@@ -10,7 +10,9 @@
     <ul>
         {% for contato in contatos%}
 
-          <li>{{contato.nome}} - {{contato.telefone}}: <a href="/deletar/{{contato.id}}">Deletar</a></li>
+          <li>{{contato.nome}} - {{contato.telefone}}: 
+            <a href="/editar/{{contato.id}}">Editar</a> <a href="/deletar/{{contato.id}}">Deletar</a> 
+        </li>
 
         {%endfor%}
     </ul>
